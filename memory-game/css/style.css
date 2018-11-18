@@ -1,0 +1,306 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    background: #6441A5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a0845, #6441A5); 
+    background: linear-gradient(to right, #2a0845, #6441A5);
+    color: white;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+}
+
+/* GAME STATS */
+
+.game-stats{
+    width: 660px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.moves{
+    width: 50%;
+    display: flex;
+}
+
+.timer{
+    width: 50%;
+    display: flex;
+}
+
+.restart{
+    width: 30%;
+    padding: 0;
+    text-align: center;
+}
+
+#playAgainBtn{
+    cursor: pointer;
+}
+
+#timer{
+    width: 70%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#stars{
+    padding-right: 20px;
+    color: #f7c933;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+.hide{
+    display: none;
+}
+
+
+/* CARD GRID */
+
+.grid-container{
+    width: 660px;
+    min-height: 680px;
+    background: #fc4a1a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
+    background: linear-gradient(to right, #f7b733, #fc4a1a); 
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.card{
+    position: relative;
+    margin: 5px;
+    transition: all .5s ease;
+    transform-style: preserve-3d;
+    display: flex;
+    height: 125px;
+    width: 125px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+ 
+}
+
+.back, .front{
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: inherit;
+    height: 125px;
+    width: 125px;
+}
+
+.front{
+    background-color: #2a0845;
+    background-size: 85px;
+}
+
+.back{
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    background-size: 100px;
+    background-color: azure;
+}
+
+.flip{
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+}
+
+.match{
+    background-color: green;
+}
+
+/* MODAL */
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #fc4a1a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
+    background: linear-gradient(to right, #f7b733, #fc4a1a); 
+}
+
+.modal-content{
+    width: 65%;
+    margin: 15% auto;
+    text-align: center;
+    padding: 15px;
+    background: #6441A5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a0845, #6441A5); 
+    background: linear-gradient(to right, #2a0845, #6441A5);
+    border-radius: 5px;
+    box-shadow: 10px 12px 25px 0 rgba(46, 61, 73, 0.5);
+    color: white;
+    font-size: 1.2em;
+}
+
+#restart-btn{
+    padding: 15px;
+    background-color: #f7b733;
+    color: #2a0845;
+    font-size: .7em;
+    box-shadow: 5px 2px 3px 0 rgba(46, 61, 73, 0.5);
+    border-radius: 5px;
+    border: none;
+}
+
+#restart-btn:hover{
+    background-color: rgb(62, 182, 62);
+}
+
+a{
+    text-decoration: none;
+    color: #f7b733;
+}
+
+a:hover{
+    color: #fc4a1a;
+}
+
+.footer{
+    text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 685px){
+    .game-stats{
+        width: 500px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #timer{
+        width: 70%;
+        text-align: right;
+        padding-right: 10px;
+    }
+    
+    #stars{
+        padding-right: 20px;
+    }
+
+    .grid-container{
+        width: 480px;
+        min-height: 550px;
+        padding: 16px;
+        border-radius: 10px;
+    }
+    
+    .card{
+        margin: 1px;
+        height: 100px;
+        width: 100px; 
+    }
+    
+    .back, .front{
+        height: 100px;
+        width: 100px;
+        background-size: 70px;
+    }
+
+    .modal-content{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    h1{
+        margin-bottom: 0;
+    }
+
+    .game-stats{
+        width: 300px;
+        font-size: 16px;
+    }
+    
+    #timer{
+        padding-right: 5px;
+    }
+    
+    #stars{
+        padding: 0 5px 0 0;
+    }
+    
+    .grid-container{
+        width: 300px;
+        min-height: 360px;
+        padding: 8px;
+    }
+    
+    .card{
+        margin: 4px;
+        height: 80px;
+        width: 63px; 
+    }
+    
+    .back, .front{
+        height: 80px;
+        width: 63px;
+        background-size: 45px;
+    }
+    
+    .footer{
+        font-size: 16px;
+    }
+  
+    .modal-content{
+        width: 80%;
+        font-size: 1em;
+    }
+
+    #restart-btn{
+        font-size: .6em;
+    }
+    
+}
+
